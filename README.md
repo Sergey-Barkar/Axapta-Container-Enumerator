@@ -23,5 +23,5 @@ while (enumerator.moveNext())
     ... = enumerator.current();
 }
 ```
-Exist one "but" - this new way do have slow performance in compare with the standard one.
+Exist one "but" - this new way have slow performance in compare with the standard one.
 Use or not - up to you.
