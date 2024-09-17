@@ -1,6 +1,6 @@
 # Container enumerator for Microsoft Dynamics AX
 
-Standard way to get a value from a container looks like:<br/>
+## Standard way to get a value from a container looks like:<br/>
 ```
 container con = [1,2,'3'];
 int       j,
@@ -12,8 +12,7 @@ for (j = 1; j <= jMax; j++)
     ... = conPeek(con, j);
 }
 ```
-
-# The container enumerator adds the new convenient way:
+## The container enumerator adds the new convenient way:
 ```
 ConEnumerator enumerator = new ConEnumerator([1, 2, '3']);
 ;
