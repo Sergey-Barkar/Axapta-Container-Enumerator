@@ -1,0 +1,94 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: ConEnumerator выгружен
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #ConEnumerator
+    Id 39637
+    PROPERTIES
+      Name                #ConEnumerator
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #current
+        #public anyType current()
+        #{
+        #    ;
+        #
+        #    return conPeek(con, indexCur);
+        #}
+      ENDSOURCE
+      SOURCE #toString
+        #public str toString()
+        #{
+        #    ;
+        #
+        #    return con2str(con);
+        #}
+      ENDSOURCE
+      SOURCE #definitionString
+        #public str definitionString()
+        #{
+        #    ;
+        #
+        #    return identifierStr(anyType);
+        #}
+      ENDSOURCE
+      SOURCE #reset
+        #public void reset()
+        #{
+        #    #DEFINE.INDEX_DEFAULT(0)
+        #    ;
+        #
+        #    indexCur = #INDEX_DEFAULT;
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #public void new(container _con)
+        #{
+        #    ;
+        #
+        #    con      = _con;
+        #    indexMax = conLen(con);
+        #}
+      ENDSOURCE
+      SOURCE #moveNext
+        #public boolean moveNext()
+        #{
+        #    boolean ret;
+        #    ;
+        #
+        #    if (indexCur < indexMax)
+        #    {
+        #        indexCur++;
+        #
+        #        ret = true;
+        #    }
+        #    else if (indexCur == indexMax)
+        #    {
+        #        indexCur++;
+        #    }
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+      SOURCE #classDeclaration
+        #// Sergey Barkar, MIT Licence, 17/09/2024 N
+        #class ConEnumerator implements Enumerator
+        #{
+        #    container con;
+        #    int       indexCur,
+        #              indexMax;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: END
